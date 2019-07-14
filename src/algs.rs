@@ -28,4 +28,16 @@ static ALG_TABLE: &'static [(&[&'static str], EncDecFct, EncDecFct)] = &[
     (&["base64", "b64", "BASE64", "B64"], base64::encode, base64::decode),
     (&["urlencode", "url", "urlencoding", "URL"], url::encode, url::decode),
     (&["sha256", "SHA256", "sha2"], sha256::encode, sha256::decode),
+
+    /* TODO :
+        ascii_hex
+        ascii_bin
+        ascii_dec
+        ascii_oct
+        utf-8
+        offset
+        cesar
+
+
+    */
 ];
