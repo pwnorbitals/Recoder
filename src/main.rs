@@ -1,6 +1,6 @@
 extern crate structopt;
 use structopt::StructOpt;
-use std::io::{self, Write};
+use std::io::{self, Write, Read};
 
 mod algs;
 
@@ -14,7 +14,7 @@ struct Opt {
     decode: Option<String>,
 
     #[structopt(name = "STRING")]
-    string: String
+    string: Option<String>
 }
 
 
@@ -35,14 +35,21 @@ fn main() {
         panic!("Need an action")
     } 
 
+    let mut input : Vec<u8> = vec![];
+    if opt.string.is_none() {
+        io::stdin().read_to_end(&mut input).unwrap();
+    } else {
+        input = opt.string.unwrap().as_bytes().to_vec();
+    }
+
     let mut result: Option<Vec<u8>> = None;
     if opt.encode.is_some() {
         let alg = opt.encode.unwrap();
-        result = encode(alg, opt.string.as_bytes());
+        result = encode(alg, &input[..]);
     }
     else if opt.decode.is_some() {
         let alg = opt.decode.unwrap();
-        result = decode(alg, opt.string.as_bytes());
+        result = decode(alg, &input[..]);
     }
 
     io::stdout().write_all(&result.expect("Couldn't execute the action")[..]).unwrap();
