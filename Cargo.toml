@@ -1,0 +1,17 @@
+[package]
+name = "coder"
+version = "0.1.0"
+authors = ["Chris de CLAVERIE <c.de-claverie@pm.me>"]
+edition = "2018"
+
+[features]
+default = ["sha1/std"]
+
+[dependencies]
+structopt = "0.2"
+bytes = "0.4.12"
+md5 = "0.6.1"
+sha1 = "0.6.0"
+base64 = "0.10.1"
+urlencoding = "0.2.0"
+sha2 = "0.8.0"
