@@ -12,4 +12,4 @@ Simple encoding :
 `./recoder --encode base64 RustIsAwesome` 
 
 Chaining :
-`./recoder -e base64 RustIsAwesome | ./recoder -d` 
+`./recoder -e base64 RustIsAwesome | ./recoder -d base64` 
