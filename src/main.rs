@@ -20,13 +20,14 @@ struct Opt {
 fn main() {
     let opt = Opt::from_args();
 
-
-    let mut input : Vec<u8> = vec![];
-    if opt.string.is_none() {
-        io::stdin().read_to_end(&mut input).unwrap();
-    } else {
-        input = opt.string.unwrap().as_bytes().to_vec();
-    }
+    let input = match opt.string {
+        Some(data) => data.as_bytes().to_vec(),
+        _ => {
+            let mut buf : Vec<u8> = vec![];
+            io::stdin().read_to_end(&mut buf).unwrap();
+            buf
+        }
+    };
 
     let result = match (opt.encode, opt.decode) {
         (Some(alg), None) => algs::find(alg).unwrap().0(&input[..]),
