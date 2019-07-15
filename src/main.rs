@@ -28,12 +28,7 @@ fn decode(alg: String, value: &[u8]) -> Option<Vec<u8>> {
 
 fn main() {
     let opt = Opt::from_args();
-    
-    if opt.encode.is_some() && opt.decode.is_some() {
-        panic!("Cannot decode and encode");
-    } else if opt.encode.is_none() && opt.decode.is_none() {
-        panic!("Need an action")
-    } 
+
 
     let mut input : Vec<u8> = vec![];
     if opt.string.is_none() {
@@ -42,14 +37,20 @@ fn main() {
         input = opt.string.unwrap().as_bytes().to_vec();
     }
 
-    let mut result: Option<Vec<u8>> = None;
-    if opt.encode.is_some() {
-        let alg = opt.encode.unwrap();
-        result = encode(alg, &input[..]);
-    }
-    else if opt.decode.is_some() {
-        let alg = opt.decode.unwrap();
-        result = decode(alg, &input[..]);
+    let mut result: Option<Vec<u8>>;
+
+    match (opt.encode, opt.decode) {
+        (Some(alg), None) => {
+            result = encode(alg, &input[..]);
+        },
+
+        (None, Some(alg)) => {
+            result = decode(alg, &input[..]);
+        },
+
+        _ => {
+            panic!("Bad action");
+        }
     }
 
     io::stdout().write_all(&result.expect("Couldn't execute the action")[..]).unwrap();
