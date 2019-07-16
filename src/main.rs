@@ -1,4 +1,3 @@
-extern crate structopt;
 use structopt::StructOpt;
 use std::io::{self, Write, Read};
 
@@ -12,6 +11,9 @@ struct Opt {
 
     #[structopt(short = "d", long = "decode")]
     decode: Option<String>,
+
+    #[structopt(short = "o", long = "options")]
+    options: Option<String>,
 
     #[structopt(name = "STRING")]
     string: Option<String>
@@ -37,10 +39,10 @@ fn main() {
     // Compute the result
     let result = match (opt.encode, opt.decode) {
         // Encode
-        (Some(alg), None) => algs::find(alg).unwrap().0(&input[..]),
+        (Some(alg), None) => algs::find(alg).unwrap().0(&input[..], opt.options),
 
         // Decode
-        (None, Some(alg)) =>  algs::find(alg).unwrap().1(&input[..]),
+        (None, Some(alg)) =>  algs::find(alg).unwrap().1(&input[..], opt.options),
 
         // None or both ?!
         _ => panic!("Bad action"),

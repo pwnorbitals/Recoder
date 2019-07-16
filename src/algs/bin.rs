@@ -8,9 +8,9 @@ Encoding works on a string (ascii like "Exam"), returns a string (here would be 
 */
 
 pub fn encode(val: &[u8], _opts: Option<String>) -> Option<Vec<u8>> {
-    return Some(hex::encode(str::from_utf8(val).unwrap()).as_bytes().to_vec());
+    return Some(str::from_utf8(val));
 }
 
 pub fn decode(val: &[u8], _opts: Option<String>) -> Option<Vec<u8>> {
-    return Some(hex::decode(val).unwrap());
+    return Some();
 }

@@ -6,7 +6,7 @@ mod url;
 mod hex;
 
 
-pub type EncDecFct = fn (&[u8]) -> Option<Vec<u8>>;
+pub type EncDecFct = fn (&[u8], Option<String>) -> Option<Vec<u8>>;
 
 pub fn find(alg:String) -> Option<(&'static EncDecFct, &'static EncDecFct)> {
 
@@ -32,7 +32,6 @@ static ALG_TABLE: &'static [(&[&'static str], EncDecFct, EncDecFct)] = &[
     (&["hex", "HEX", "ascii_hex"], hex::encode, hex::decode)
 
     /* TODO :
-        ascii_hex
         ascii_bin
         ascii_dec
         ascii_oct
