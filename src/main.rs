@@ -18,23 +18,34 @@ struct Opt {
 }
 
 fn main() {
+    // Parse arguments
     let opt = Opt::from_args();
 
+    // Take input
     let input = match opt.string {
-        Some(data) => data.as_bytes().to_vec(),
+        // From command-line
+        Some(data) => data.as_bytes().to_vec(),   
+
+        // From stdin
         _ => {
-            let mut buf : Vec<u8> = vec![];
-            io::stdin().read_to_end(&mut buf).unwrap();
+            let mut buf : Vec<u8> = vec![];             
+            io::stdin().read_to_end(&mut buf).unwrap(); 
             buf
         }
     };
 
+    // Compute the result
     let result = match (opt.encode, opt.decode) {
+        // Encode
         (Some(alg), None) => algs::find(alg).unwrap().0(&input[..]),
+
+        // Decode
         (None, Some(alg)) =>  algs::find(alg).unwrap().1(&input[..]),
+
+        // None or both ?!
         _ => panic!("Bad action"),
     };
 
-
+    // Print the result
     io::stdout().write_all(&result.expect("Couldn't execute the action")[..]).unwrap();
 }

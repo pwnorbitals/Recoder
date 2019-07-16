@@ -1,5 +1,5 @@
 [package]
-name = "coder"
+name = "recoder"
 version = "0.1.0"
 authors = ["Chris de CLAVERIE <c.de-claverie@pm.me>"]
 edition = "2018"
@@ -15,3 +15,4 @@ sha1 = "0.6.0"
 base64 = "0.10.1"
 urlencoding = "0.2.0"
 sha2 = "0.8.0"
+hex = "0.3.2"
