@@ -31,4 +31,4 @@ Chaining :
 |"base64", "b64", "BASE64" "B64" | Encoder | None |
 |"urlencode", "url", "urlencoding" "URL" | Encoder | None |
 |"sha256", "SHA256", "sha2", | Hasher | None |
-|"hex", "HEX", "ascii_hex", | Encoder | `ignore-whitespace=[true/false]`  |
+|"hex", "HEX", "ascii_hex", | Encoder | `ignore-whitespace=[true/false]`, `separator=(string)`  |
