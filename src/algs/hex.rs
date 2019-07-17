@@ -18,7 +18,7 @@ pub fn decode(val: &[u8], _opts: Option<String>) -> Option<Vec<u8>> {
     let data = querystring::querify(&optstr[..]);
     let mut value = String::from_utf8(val.to_vec()).unwrap();
     for item in data {
-        match item.0 {
+        match &item.0.to_lowercase()[..] {
             "ignore-whitespace" => {
                 if item.1 == "true" {
                     value = value.chars().filter(|c| !c.is_whitespace()).collect();
