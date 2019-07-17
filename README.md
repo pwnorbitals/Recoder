@@ -26,12 +26,12 @@ Chaining :
 
 | Names | Type | Options |
 |-------|---------|-------------|
-|"md5", "md-5", "MD5" | hasher | None |
-|"sha1", "sha-1", "SHA1" | Hasher | None |
-|"base64", "b64", "BASE64" "B64" | Encoder | None |
+|"md5", "md-5" | hasher | None |
+|"sha1", "sha-1" | Hasher | None |
+|"base64", "b64", "base-64", "b-64"| Encoder | None |
 |"urlencode", "url", "urlencoding" "URL" | Encoder | None |
-|"sha256", "SHA256", "sha2" | Hasher | None |
-|"hex", "HEX" | Encoder | `ignore-whitespace=[true/false]`, `separator=(string)`  |
+|"sha256", "sha2", "sha-256", "sha-2" | Hasher | None |
+|"hex" | Encoder | `ignore-whitespace=[true/false]`, `separator=(string)`  |
 
 ## Work-in-progress
 
