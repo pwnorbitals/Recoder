@@ -1,7 +1,7 @@
 # Recoder
 Rust-based generic encoder/decoder/hasher 
 
-This is my first real project using Rust. I hope to be able to support many encodings and hashes and make the tool as easy-to-use as possible.
+This is my first real project using Rust. I hope to be able to support many encodings and hashes and make the tool as easy-to-use as possible. Please open an issue if the encoder you want or need isn't implemented.
 
 Feel free to give feedback on the code and send pull requests :)
 
@@ -20,7 +20,7 @@ Chaining :
 
 `-d`, `--decode NAME` : decode the data (when possible) using the given decoder.
 
-`-o`, `--options [OPTS]` : encoder-specific options. Options are parsed as follows : `key=value&key2=value2&...`
+`-o`, `--options [OPTS]` : encoder-specific options. Options are parsed as a query string : `key=value&key2=value2&...`
 
 ## Encoders
 
@@ -32,3 +32,19 @@ Chaining :
 |"urlencode", "url", "urlencoding" "URL" | Encoder | None |
 |"sha256", "SHA256", "sha2", | Hasher | None |
 |"hex", "HEX", "ascii_hex", | Encoder | `ignore-whitespace=[true/false]`, `separator=(string)`  |
+
+## Work-in-progress
+
+- [ ] Common options for encoders
+
+- [ ] More encoders and hashers 
+
+    - [ ] decimal
+
+    - [ ] octal
+
+    - [ ] offset
+
+    - [ ] caesar
+
+- [ ] Write tests
