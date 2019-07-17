@@ -29,13 +29,12 @@ static ALG_TABLE: &'static [(&[&'static str], EncDecFct, EncDecFct)] = &[
     (&["base64", "b64", "BASE64", "B64"], base64::encode, base64::decode),
     (&["urlencode", "url", "urlencoding", "URL"], url::encode, url::decode),
     (&["sha256", "SHA256", "sha2"], sha256::encode, sha256::decode),
-    (&["hex", "HEX", "ascii_hex"], hex::encode, hex::decode)
+    (&["hex", "HEX"], hex::encode, hex::decode)
 
     /* TODO :
-        ascii_bin
-        ascii_dec
-        ascii_oct
-        utf-8
+        bin
+        dec
+        oct
         offset
         cesar
 

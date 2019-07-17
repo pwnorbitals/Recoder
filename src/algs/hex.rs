@@ -51,7 +51,6 @@ pub fn encode(val: &[u8], _opts: Option<String>) -> Option<Vec<u8>> {
             for graph in sep_rev.clone().flat_map(|g| g.chars()) {
                 result.insert((i+1).try_into().unwrap(), graph);
                 last_cut += 1;
-                println!("{:?} : {:?}", i, result);
             }
             
         }
@@ -73,6 +72,7 @@ pub fn decode(val: &[u8], _opts: Option<String>) -> Option<Vec<u8>> {
                     value = value.chars().filter(|c| !c.is_whitespace()).collect();
                 }
             },
+            // TODO : Support separator for hex decoding
             "separator" => {
 
             },

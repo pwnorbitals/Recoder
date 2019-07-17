@@ -30,8 +30,8 @@ Chaining :
 |"sha1", "sha-1", "SHA1" | Hasher | None |
 |"base64", "b64", "BASE64" "B64" | Encoder | None |
 |"urlencode", "url", "urlencoding" "URL" | Encoder | None |
-|"sha256", "SHA256", "sha2", | Hasher | None |
-|"hex", "HEX", "ascii_hex", | Encoder | `ignore-whitespace=[true/false]`, `separator=(string)`  |
+|"sha256", "SHA256", "sha2" | Hasher | None |
+|"hex", "HEX" | Encoder | `ignore-whitespace=[true/false]`, `separator=(string)`  |
 
 ## Work-in-progress
 
@@ -46,5 +46,13 @@ Chaining :
     - [ ] offset
 
     - [ ] caesar
+
+    - [ ] sha-256 variants
+
+    - [ ] sha-512 and variants
+
+    - [ ] bcrypt
+
+    - [ ] scrypt
 
 - [ ] Write tests
