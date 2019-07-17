@@ -43,9 +43,7 @@ Chaining :
 
     - [ ] octal
 
-    - [ ] offset
-
-    - [ ] caesar
+    - [ ] offset (Caesar)
 
     - [ ] sha-256 variants
 
@@ -54,5 +52,7 @@ Chaining :
     - [ ] bcrypt
 
     - [ ] scrypt
+
+- [ ] Better exception handling
 
 - [ ] Write tests
