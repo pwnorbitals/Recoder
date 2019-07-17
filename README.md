@@ -1,4 +1,4 @@
-# Recoder
+#  Recoder :loop:
 Rust-based generic encoder/decoder/hasher 
 
 This is my first real project using Rust. I hope to be able to support many encodings and hashes and make the tool as easy-to-use as possible. Please open an issue if the encoder you want or need isn't implemented.
