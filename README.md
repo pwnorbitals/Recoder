@@ -26,11 +26,12 @@ Chaining :
 
 | Names | Type | Options |
 |-------|---------|-------------|
-|"md5", "md-5" | hasher | None |
+|"md5", "md-5" | Hasher | None |
 |"sha1", "sha-1" | Hasher | None |
 |"base64", "b64", "base-64", "b-64"| Encoder | None |
-|"urlencode", "url", "urlencoding" "URL" | Encoder | None |
+|"urlencode", "url", "urlencoding" | Encoder | None |
 |"sha256", "sha2", "sha-256", "sha-2" | Hasher | None |
+|"cesar", "rot", "rotate", "off", "offset" | Encoder | `offset=[+/-](int){default:13}` |
 |"hex" | Encoder | `ignore-whitespace=[true/false]`, `separator=(string)`  |
 
 ## Work-in-progress
@@ -42,8 +43,6 @@ Chaining :
     - [ ] decimal
 
     - [ ] octal
-
-    - [ ] offset (Caesar)
 
     - [ ] sha-256 variants
 

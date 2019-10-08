@@ -4,6 +4,7 @@ mod sha1;
 mod sha256;
 mod url;
 mod hex;
+mod caesar;
 
 
 pub type EncDecFct = fn (&[u8], Option<String>) -> Option<Vec<u8>>;
@@ -29,14 +30,13 @@ static ALG_TABLE: &'static [(&[&'static str], EncDecFct, EncDecFct)] = &[
     (&["base64", "b64", "base-64", "b-64"], base64::encode, base64::decode),
     (&["urlencode", "url", "urlencoding"], url::encode, url::decode),
     (&["sha256", "sha2", "sha-256", "sha-2"], sha256::encode, sha256::decode),
-    (&["hex"], hex::encode, hex::decode)
+    (&["hex"], hex::encode, hex::decode),
+    (&["caesar", "offset", "rot", "off", "rotate"], caesar::encode, caesar::decode),
 
     /* TODO :
         bin
         dec
         oct
-        offset
-        cesar
 
 
     */
